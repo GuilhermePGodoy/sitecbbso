@@ -12,29 +12,30 @@
 </head>
 <body>
     <header>
-        <button id="btn-menu" aria-label="Abrir Menu">☰</button>
-        <h1>Vôlei CBBSO</h1>
-        <a href="">Home</a>
-        <a href="">Atletas</a>
-        <a href="">Treinos</a>
-        <a href="">Times</a>
-
+        <div class="logo">
+            <button id="btn-menu" aria-label="Abrir Menu">☰</button>
+            <h1>Vôlei CBBSO</h1>
+        </div>
+        
+        <nav class="nav-principal">
+            <a href="">Home</a>
+            <a href="">Atletas</a>
+            <a href="">Treinos</a>
+            <a href="">Times</a>
+        </nav>
     </header>
 
-
-    <div id="overlay-menu"></div>
-
-    <nav id="menu-lateral">
-        <div>
-            <h3>Menu</h3>
-            <button id="btn-fechar" aria-label="Fechar Menu">&times;</button>
+    <aside id="menu-lateral" class="menu-oculto">
+        <button id="btn-fechar" aria-label="Fechar Menu">&times;</button>
+        <div class="menu-conteudo">
+            <h3>Opções do Time</h3>
+            <ul>
+                <li><a href="#">Formulário de inscrição</a></li>
+                <li><a href="#">Lista de espera CCCSO</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
         </div>
-
-        <ul>
-            <li><a href="#">Lista de espera CCCSO</a></li>
-            <li><a href="#">Inscrição de atletas</a></li>
-        </ul>
-    </nav>
+    </aside>
 
     <main>
         <section id="apresentacao">
@@ -56,5 +57,6 @@
         <a href="mailto:voleicbbso@outlook.com">voleicbbso@outlook.com</a>
         <a href="https://www.instagram.com/voleicbbso/">Instagram</a>
     </footer>
+    <script src="./js/script.js"></script>
 </body>
 </html>
