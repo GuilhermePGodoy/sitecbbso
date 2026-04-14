@@ -17,7 +17,7 @@ body{
 
 header {
     display: flex;
-    justify-content:flex-start
+    justify-content:center
 }
 
 #menu-lateral{
@@ -80,6 +80,14 @@ header {
     align-items: center;            /* Alinha os dois verticalmente no centro */
     padding: 8px 20px;
     border-bottom: 1px solid #eee;  /* Uma linha sutil para separar o cabeçalho do menu */
+}
+
+#btn-menu {
+    position: fixed;
+    top: 4%;
+    left: 1%;
+    z-index: 1001;
+    font-size:large
 }
 
 .nav{
