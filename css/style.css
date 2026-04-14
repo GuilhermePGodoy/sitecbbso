@@ -1,18 +1,16 @@
-body{
+body {
     margin: 0;
 }
 
-.grid-container{
+.grid-container {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
+    grid-template-rows: 30vh 1fr auto;
+    min-height: 100vh;
     grid-template-areas:
-    "nav"
-    "content"
-    "foot";
+        "nav"
+        "content"
+        "foot";
 }
 
 header {
@@ -20,10 +18,11 @@ header {
     justify-content:center
 }
 
-#menu-lateral{
+#menu-lateral {
     position: fixed;
     top: 0;
-    left: -300px; /* Largura negativa para ele sumir */
+    left: -300px;
+    /* Largura negativa para ele sumir */
     width: 300px;
     height: 100vh;
     background-color: #f7f7f7;
@@ -40,17 +39,23 @@ header {
 
 /* Estiliza o item da lista e o link */
 #menu-lateral ul li a {
-    text-decoration: none; /* Tira o sublinhado */
-    color: #333;           /* Define uma cor sóbria */
-    display: block;        /* Faz o link ocupar a linha toda (melhora o clique) */
-    padding: 15px 25px;    /* Espaçamento interno */
+    text-decoration: none;
+    /* Tira o sublinhado */
+    color: #333;
+    /* Define uma cor sóbria */
+    display: block;
+    /* Faz o link ocupar a linha toda (melhora o clique) */
+    padding: 15px 25px;
+    /* Espaçamento interno */
     font-size: 1.1rem;
-    transition: background 0.3s, color 0.3s; /* Transição suave */
+    transition: background 0.3s, color 0.3s;
+    /* Transição suave */
 }
 
 /* Quando o JS adiciona a classe .ativo */
 #menu-lateral.ativo {
-    transform: translateX(300px); /* Move para dentro da tela */
+    transform: translateX(300px);
+    /* Move para dentro da tela */
 }
 
 #overlay-menu {
@@ -61,7 +66,7 @@ header {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
-    
+
     /* Estado inicial: Invisível mas 'vivo' */
     opacity: 0;
     visibility: hidden;
@@ -76,10 +81,13 @@ header {
 
 #menu-lateral div:first-child {
     display: flex;
-    justify-content: space-between; /* Empurra o h3 pra esquerda e o botão pra direita */
-    align-items: center;            /* Alinha os dois verticalmente no centro */
+    justify-content: space-between;
+    /* Empurra o h3 pra esquerda e o botão pra direita */
+    align-items: center;
+    /* Alinha os dois verticalmente no centro */
     padding: 8px 20px;
-    border-bottom: 1px solid #eee;  /* Uma linha sutil para separar o cabeçalho do menu */
+    border-bottom: 1px solid #eee;
+    /* Uma linha sutil para separar o cabeçalho do menu */
 }
 
 #btn-menu {
@@ -92,9 +100,38 @@ header {
 
 .nav{
     grid-area: nav;
+    position: relative;
+    overflow: hidden;
     background-color: #ffcc00;
     padding-bottom: 60px;
-    box-shadow:  0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 0;
+}
+
+/* Camada da foto (do fundo)*/
+.nav::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    aspect-ratio: 637 / 288;
+    background: url('../voleibtime2.jpg') center center / 100% 100% no-repeat;
+    /* Fade nos lados da foto */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+    z-index: -2;
+}
+
+/* Camada amarela translúcida (intermediaria)*/
+.nav::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 204, 0, 0.65);
+    z-index: -1;
 }
 
 button {
@@ -105,7 +142,7 @@ button {
     cursor: pointer;
 }
 
-.content{
+.content {
     grid-area: content;
     overflow-y: auto;
     height: 100%;
@@ -113,7 +150,7 @@ button {
     grid-template-rows: auto auto auto;
     background-color: #fffff1;
     gap: 40px;
-    padding: 50px 0;
+    padding: 50px 0 60px;
 }
 
 .paragrafo-content {
@@ -130,15 +167,18 @@ button {
     padding: 10px 20px;
 }
 
-.footer{
-    grid-area: foot;
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
     background-color: #ffcc00;
-
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 30px;
-  
-    padding: 20px 30px;
-    min-height: 60px;
+    padding: 0 50px;
+    box-sizing: border-box;
+    z-index: 100;
 }
