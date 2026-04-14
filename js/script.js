@@ -1,26 +1,29 @@
-// 1. Mapeamento dos elementos do DOM
-const btnMenu = document.getElementById('btn-menu');
+// 1. Selecionamos todos os elementos necessários
+const btnAbrir = document.getElementById('btn-menu');
 const btnFechar = document.getElementById('btn-fechar');
 const menuLateral = document.getElementById('menu-lateral');
+const overlay = document.getElementById('overlay-menu');
 
-// 2. Evento para ABRIR o menu
-btnMenu.addEventListener('click', () => {
-    menuLateral.classList.add('ativo');
-});
+// 2. Criamos a função que alterna o estado do menu
+// Ela adiciona a classe se não existir, e remove se já existir
+function toggleMenu() {
+    menuLateral.classList.toggle('ativo');
+    overlay.classList.toggle('ativo');
+}
 
-// 3. Evento para FECHAR o menu (clicando no X)
-btnFechar.addEventListener('click', () => {
-    menuLateral.classList.remove('ativo');
-});
+// 3. Atribuímos a função aos eventos de clique
+// Abrir ao clicar no ícone ☰
+btnAbrir.addEventListener('click', toggleMenu);
 
-// 4. Melhoria de UX: Fechar o menu ao clicar fora dele
-document.addEventListener('click', (event) => {
-    const isMenuAberto = menuLateral.classList.contains('ativo');
-    const cliqueForaDoMenu = !menuLateral.contains(event.target);
-    const cliqueForaDoBotao = !btnMenu.contains(event.target);
+// Fechar ao clicar no X
+btnFechar.addEventListener('click', toggleMenu);
 
-    // Se o menu estiver aberto e o clique não for nele nem no botão que o abre
-    if (isMenuAberto && cliqueForaDoMenu && cliqueForaDoBotao) {
-        menuLateral.classList.remove('ativo');
+// Fechar ao clicar no overlay (fundo escuro fora do menu)
+overlay.addEventListener('click', toggleMenu);
+
+// 4. Bônus: Fechar ao apertar a tecla "Esc"
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menuLateral.classList.contains('ativo')) {
+        toggleMenu();
     }
 });

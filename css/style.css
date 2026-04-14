@@ -1,81 +1,82 @@
-body{
-    background-color: whitesmoke;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Altura mínima da viewport */
-    margin: 0;
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% 70% 10%;
+    height: 100vh;
+    grid-template-areas:
+    "nav"
+    "content"
+    "foot";
 }
 
-
-
-/* Header */
-header{
-    background-color: rgb(255, 208, 0);
-    padding: 10px;
-    border: 2px solid black;
+#menu-lateral{
+    position: fixed;
+    top: 0;
+    left: -300px; /* Largura negativa para ele sumir */
+    width: 300px;
+    height: 100vh;
+    background-color: #f7f7f7;
+    transition: all 0.3s;
+    z-index: 1000;
 }
 
-header h1{
-    letter-spacing: 1px;
-    font-family: sans-serif;;
-    font-size: 60px;
+/* Quando o JS adiciona a classe .ativo */
+#menu-lateral.ativo {
+    transform: translateX(300px); /* Move para dentro da tela */
 }
 
-header a{
-    margin: 0px 0px 0px 4px;
-}
-
-
-/* Menu oculto */
-.menu-oculto {
+#overlay-menu {
     position: fixed;
     top: 0;
     left: 0;
-    width: 250px;
-    height: 100vh;
-    background-color: #333;
-    color: white;
-    transform: translateX(-100%); /* Joga para fora da tela */
-    transition: transform 0.3s ease-in-out; /* Animação suave */
-    z-index: 1000; /* Garante que fique por cima de tudo */
-    padding: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    
+    /* Estado inicial: Invisível mas 'vivo' */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
 }
 
-/* Classe que o JavaScript vai adicionar para mostrar o menu */
-.menu-oculto.ativo {
-    transform: translateX(0); /* Traz de volta para a tela */
+/* Quando ganha a classe .ativo */
+#overlay-menu.ativo {
+    opacity: 1;
+    visibility: visible;
 }
 
-/* Estilos básicos para o botão fechar e links internos */
-#btn-fechar {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    margin-bottom: 20px;
+.nav{
+    grid-area: nav;
+    background-color: #ffcc00;
+    padding-bottom: 60px;
+    box-shadow:  0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.menu-conteudo a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    margin-bottom: 15px;
+.content{
+    grid-area: content;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    background-color: #fffff1;
+    gap: 40px;
+    padding: 50px 0;
 }
 
-
-
-
-/* Footer */
-footer{
-    padding: 10px;
-    background-color: rgb(255, 208, 0);
-    position: sticky;
-    bottom: 0;
-    border: 2px solid black;
+.paragrafo-content {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fffff5;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    font-size: 16px;
+    font-family: "Roboto", Arial, sans-serif;
+    padding: 0 20px;
 }
 
-footer p{
-    font-size: 20px;
-    margin: 0px 0px 10px 0px;
+.footer{
+    grid-area: foot;
+    background-color: #ffcc00;
 }
