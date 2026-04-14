@@ -2,13 +2,25 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site CBBSO</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <nav>
 
+    </nav>
+</head>
 <body>
-    <!-- Tirar depois que JavaScript do botão e menu estiver pronto -->
-    <input type="checkbox" id="check-menu" style="display: none;">
+    <header>
+        <button id="btn-menu" aria-label="Abrir Menu">☰</button>
+        <h1>Vôlei CBBSO</h1>
+        <a href="">Home</a>
+        <a href="">Atletas</a>
+        <a href="">Treinos</a>
+        <a href="">Times</a>
+
+    </header>
+
 
     <div id="overlay-menu"></div>
 
@@ -28,13 +40,14 @@
         </ul>
     </nav>
 
-    <!-- Tirar depois que JavaScript do botão e menu estiver pronto -->
-    <label for="check-menu" id="overlay-menu"></label>
-
-    <div class="grid-container">
-        <header class="nav">
-            <!-- Linha de baixo comentada pra gambiarra de acionar botão sem JavaScript. Descomentar depois -->
-            <!-- <button id="btn-menu" aria-label="Abrir Menu">☰</button> -->
+    <main>
+        <section id="apresentacao">
+            <p>Quem somos</p>
+        </section>
+        
+        <section id="time-B">
+            <p>Time B</p>
+        </section>
 
             <!-- Tirar depois que JavaScript do botão e menu estiver pronto -->
              <label for="check-menu" id="btn-menu">
@@ -61,11 +74,10 @@
         </main>
 
 
-        <footer class="footer">
-            <p>Contate-nos:</p>
-            <a href="https://www.instagram.com/voleicbbso/">Instagram</a>
-        </footer>
-    </div>
+    <footer>
+        <p>Contate-nos:</p>
+        <a href="mailto:voleicbbso@outlook.com">voleicbbso@outlook.com</a>
+        <a href="https://www.instagram.com/voleicbbso/">Instagram</a>
+    </footer>
 </body>
-
 </html>
