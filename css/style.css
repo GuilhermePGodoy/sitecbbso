@@ -117,4 +117,10 @@ button {
 .footer{
     grid-area: foot;
     background-color: #ffcc00;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    padding: 0 50px;
 }
