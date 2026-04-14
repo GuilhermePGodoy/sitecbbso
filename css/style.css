@@ -136,6 +136,11 @@ header {
     padding-bottom: 60px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     z-index: 0;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
 }
 
 /* Camada da foto (do fundo)*/
@@ -211,4 +216,30 @@ button {
     padding: 0 50px;
     box-sizing: border-box;
     z-index: 100;
+}
+
+.lista-lateral li a:hover {
+    background-color: #ffcc00;
+    color: #fff;
+}
+
+#btn-menu {
+    margin-left: 10px;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    border-radius: 3px;
+}
+
+#btn-menu:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#btn-fechar {
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    border-radius: 3px;
+}
+
+#btn-fechar:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
