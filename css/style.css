@@ -13,11 +13,6 @@ body {
         "foot";
 }
 
-header {
-    display: flex;
-    justify-content:center
-}
-
 #menu-lateral {
     position: fixed;
     top: 0;
@@ -27,7 +22,7 @@ header {
     height: 100vh;
     background-color: #f7f7f7;
     transition: all 0.3s;
-    z-index: 1000;
+    z-index: 1001;
 }
 
 /* Remove os pontinhos pretos da lista */
@@ -94,7 +89,7 @@ header {
     position: fixed;
     top: 4%;
     left: 1%;
-    z-index: 1001;
+    z-index: 1000;
     font-size:large
 }
 
@@ -130,7 +125,7 @@ header {
     z-index: -2;
 }
 
-/* Camada amarela translúcida (intermediaria)*/
+/* Camada amarela translúcida (intermediária) */
 .nav::before {
     content: '';
     position: absolute;
