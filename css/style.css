@@ -52,7 +52,7 @@ body {
     background-color: #1e1e2a;
     color: #e0e0e0;
     transition: all 0.3s;
-    z-index: 1000;
+    z-index: 1001;
 }
 
 /* Remove os pontinhos pretos da lista */
@@ -155,7 +155,7 @@ body {
     z-index: -2;
 }
 
-/* Camada amarela translúcida (intermediaria)*/
+/* Camada amarela translúcida (intermediária) */
 .nav::before {
     content: '';
     position: absolute;
