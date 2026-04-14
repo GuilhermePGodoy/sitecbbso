@@ -13,16 +13,9 @@ body {
         "foot";
 }
 
-header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 12px 16px;
-}
-
 /* botão do menu */
 #btn-menu {
+    margin-left: 10px;
     font-size: 1.6rem;
     color: #1a1a1a;
     background-color: rgba(255, 255, 255, 0.35);
@@ -34,12 +27,13 @@ header {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    transition: background-color 0.3s;
+    transition: all 0.3s;
     z-index: 10;
 }
 
 #btn-menu:hover {
     background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .nav h1 {
@@ -127,7 +121,7 @@ header {
     color: #e0e0e0;
 }
 
-/* Camada principal (de */
+/* Camada principal */
 .nav {
     grid-area: nav;
     position: relative;
@@ -139,8 +133,9 @@ header {
 
     display: flex;
     justify-content: flex-start;
-    align-items: center;
-    gap: 30px;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 16px;
 }
 
 /* Camada da foto (do fundo)*/
@@ -221,17 +216,6 @@ button {
 .lista-lateral li a:hover {
     background-color: #ffcc00;
     color: #fff;
-}
-
-#btn-menu {
-    margin-left: 10px;
-    font-size: 1.2rem;
-    transition: all 0.3s;
-    border-radius: 3px;
-}
-
-#btn-menu:hover {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 #btn-fechar {
