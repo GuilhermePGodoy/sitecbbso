@@ -1,0 +1,43 @@
+body{
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Altura mínima da viewport */
+    margin: 0;
+}
+
+
+
+/* Header */
+header{
+    background-color: rgb(255, 208, 0);
+    padding: 10px;
+    border: 2px solid black;
+}
+
+header h1{
+    letter-spacing: 1px;
+    font-family: sans-serif;;
+    font-size: 60px;
+}
+
+header a{
+    margin: 0px 0px 0px 4px;
+}
+
+
+
+
+/* Footer */
+footer{
+    padding: 10px;
+    background-color: rgb(255, 208, 0);
+    position: sticky;
+    bottom: 0;
+    border: 2px solid black;
+}
+
+footer p{
+    font-size: 20px;
+    margin: 0px 0px 10px 0px;
+}
