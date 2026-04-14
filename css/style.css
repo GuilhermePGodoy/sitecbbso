@@ -1,8 +1,10 @@
 .grid-container{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 10% 70% 10%;
-    height: 100vh;
+    grid-template-rows: auto 1fr auto;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
     grid-template-areas:
     "nav"
     "content"
@@ -93,6 +95,8 @@ button {
 
 .content{
     grid-area: content;
+    overflow-y: auto;
+    height: 100%;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
     background-color: #fffff1;
@@ -122,5 +126,7 @@ button {
     justify-content: flex-start;
     align-items: center;
     gap: 30px;
-    padding: 0 50px;
+  
+    padding: 20px 30px;
+    min-height: 60px;
 }
