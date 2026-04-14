@@ -9,6 +9,11 @@
     "foot";
 }
 
+header {
+    display: flex;
+    justify-content:flex-start
+}
+
 #menu-lateral{
     position: fixed;
     top: 0;
@@ -18,6 +23,23 @@
     background-color: #f7f7f7;
     transition: all 0.3s;
     z-index: 1000;
+}
+
+/* Remove os pontinhos pretos da lista */
+#menu-lateral ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+/* Estiliza o item da lista e o link */
+#menu-lateral ul li a {
+    text-decoration: none; /* Tira o sublinhado */
+    color: #333;           /* Define uma cor sóbria */
+    display: block;        /* Faz o link ocupar a linha toda (melhora o clique) */
+    padding: 15px 25px;    /* Espaçamento interno */
+    font-size: 1.1rem;
+    transition: background 0.3s, color 0.3s; /* Transição suave */
 }
 
 /* Quando o JS adiciona a classe .ativo */
@@ -46,11 +68,27 @@
     visibility: visible;
 }
 
+#menu-lateral div:first-child {
+    display: flex;
+    justify-content: space-between; /* Empurra o h3 pra esquerda e o botão pra direita */
+    align-items: center;            /* Alinha os dois verticalmente no centro */
+    padding: 8px 20px;
+    border-bottom: 1px solid #eee;  /* Uma linha sutil para separar o cabeçalho do menu */
+}
+
 .nav{
     grid-area: nav;
     background-color: #ffcc00;
     padding-bottom: 60px;
     box-shadow:  0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .content{
