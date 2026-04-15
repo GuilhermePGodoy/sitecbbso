@@ -16,7 +16,7 @@ Atualmente, a comunicação sobre seletivas, gerenciamento da lista de espera e 
 
 ## Requisitos
 - Ter um portal público atrativo para engajar novos jogadores.
-- Automatizar o processo de captação de inscrições para seletivas.
+- Automatizar o processo de captação de inscrições de novos atletas.
 - Dar transparência e organizar a lista de espera.
 - Possuir uma área de gestão para manter o elenco atualizado.
 
