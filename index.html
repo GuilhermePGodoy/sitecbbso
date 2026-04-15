@@ -28,6 +28,8 @@
         </div>
 
         <ul class="lista-lateral">
+            <li><a href="#" id="link-home" class="ativo">Página Inicial</a></li>
+            <li><a href="#" id="link-elenco">Nosso Elenco</a></li>
             <li><a href="#">Lista de espera CCCSO</a></li>
             <li><a href="#">Inscrição de atletas</a></li>
         </ul>
@@ -40,33 +42,172 @@
         </header>
 
         <main class="content">
-            <section id="apresentacao" class="paragrafo-content">
-                <p>Quem somos</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc augue orci, malesuada eget ex a,
+
+            <div id="tela-home">
+                <section id="apresentacao" class="paragrafo-content">
+                    <p>Quem somos</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc augue orci, malesuada eget ex a,
                     consequat euismod orci. Aliquam sit amet elementum augue. Aliquam dapibus ipsum sed sapien pharetra
                     gravida. Nunc malesuada libero eget consectetur maximus. Mauris tincidunt sollicitudin rutrum.
                     Aenean at bibendum urna. Suspendisse rutrum odio iaculis, elementum ante vel, facilisis diam. Nulla
                     non eleifend nisi, et condimentum est. Duis ac ipsum orci. Vestibulum pretium, leo ut rutrum
                     hendrerit, justo nisi tincidunt sem, nec pharetra diam augue sed orci.</p>
-            </section>
-
-            <section id="time-B" class="paragrafo-content">
-                <p>Time B</p>
-                <p>Maecenas luctus ac risus nec interdum. Vestibulum hendrerit tellus placerat risus tempor, vitae
+                </section>
+                
+                <section id="time-B" class="paragrafo-content">
+                    <p>Time B</p>
+                    <p>Maecenas luctus ac risus nec interdum. Vestibulum hendrerit tellus placerat risus tempor, vitae
                     blandit leo rutrum. Sed fermentum eu orci in rutrum. Praesent nec diam nunc. Vestibulum eu sodales
                     ex. Nam luctus ultrices leo nec accumsan. Pellentesque sit amet magna scelerisque, tempus mauris a,
                     vehicula lacus. Sed convallis iaculis lacus, at mollis eros convallis vel. Sed sit amet consectetur
                     ligula. Sed ornare dui vitae interdum luctus. Cras id massa nisi.</p>
-            </section>
-
-            <section id="time-C" class="paragrafo-content">
-                <p>Time C</p>
-                <p>Sed ultrices massa vitae nulla suscipit ornare. Curabitur urna nunc, rutrum vel augue vel, pharetra
+                </section>
+                
+                <section id="time-C" class="paragrafo-content">
+                    <p>Time C</p>
+                    <p>Sed ultrices massa vitae nulla suscipit ornare. Curabitur urna nunc, rutrum vel augue vel, pharetra
                     maximus sapien. Nulla molestie nisi at mauris vestibulum porttitor. Aenean vestibulum vulputate
                     lacus nec auctor. Praesent eleifend porta libero, faucibus scelerisque lacus molestie vel. Praesent
                     auctor metus ut nulla interdum condimentum. In ut ornare metus. Sed tristique nisi sit amet sem
                     pulvinar ullamcorper.</p>
-            </section>
+                </section>
+            </div>
+
+            <div id="tela-elenco" class="oculto">
+                <section class="titulo-pagina">
+                    <h2>Nosso Elenco</h2>
+                    <p>Conheça os atletas que representam as cores do CBBSO.</p>
+                </section>
+
+                <div class="seletor-times">
+                    <button id="btn-time-b" class="btn-time ativo">Time B</button>
+                    <button id="btn-time-c" class="btn-time">Time C</button>
+                </div>
+            
+                <section id="elenco-time-b" class="elenco-categoria">
+                    <h3>Time B</h3>
+            
+                    <div class="posicao-grupo">
+                        <h4>Levantadores</h4>
+                        <div class="cards-container">
+                            <div class="player-card">
+                                <span class="player-number">7</span>
+                                <p class="player-name">Nome do Atleta</p>
+                            </div>
+                            <div class="player-card">
+                                <span class="player-number">2</span>
+                                <p class="player-name">Nome do Atleta</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="posicao-grupo">
+                        <h4>Ponteiros</h4>
+                        <div class="cards-container">
+                            <div class="player-card">
+                                <span class="player-number">10</span>
+                                <p class="player-name">Nome do Atleta</p>
+                            </div>
+                            <div class="player-card">
+                                <span class="player-number">14</span>
+                                <p class="player-name">Nome do Atleta</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="posicao-grupo">
+                        <h4>Centrais</h4>
+                        <div class="cards-container">
+                            <div class="player-card">
+                                <span class="player-number">16</span>
+                                <p class="player-name">Nome do Atleta</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="posicao-grupo">
+                        <h4>Líberos</h4>
+                        <div class="cards-container">
+                            <div class="player-card">
+                                <span class="player-number">1</span>
+                                <p class="player-name">Nome do Atleta</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="posicao-grupo">
+                        <h4>Opostos</h4>
+                        <div class="cards-container">
+                            <div class="player-card">
+                                <span class="player-number">9</span>
+                                <p class="player-name">Nome do Atleta</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            
+                <section id="elenco-time-c" class="elenco-categoria">
+                    <h3>Time C</h3>
+            
+                    <div class="posicao-grupo">
+                        <h4>Levantadores</h4>
+                        <div class="cards-container">
+                            <div class="player-card">
+                                <span class="player-number">7</span>
+                                <p class="player-name">Nome do Atleta</p>
+                            </div>
+                            <div class="player-card">
+                                <span class="player-number">2</span>
+                                <p class="player-name">Nome do Atleta</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="posicao-grupo">
+                        <h4>Ponteiros</h4>
+                        <div class="cards-container">
+                            <div class="player-card">
+                                <span class="player-number">10</span>
+                                <p class="player-name">Nome do Atleta</p>
+                            </div>
+                            <div class="player-card">
+                                <span class="player-number">14</span>
+                                <p class="player-name">Nome do Atleta</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="posicao-grupo">
+                        <h4>Centrais</h4>
+                        <div class="cards-container">
+                            <div class="player-card">
+                                <span class="player-number">16</span>
+                                <p class="player-name">Nome do Atleta</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="posicao-grupo">
+                        <h4>Líberos</h4>
+                        <div class="cards-container">
+                            <div class="player-card">
+                                <span class="player-number">1</span>
+                                <p class="player-name">Nome do Atleta</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="posicao-grupo">
+                        <h4>Opostos</h4>
+                        <div class="cards-container">
+                            <div class="player-card">
+                                <span class="player-number">9</span>
+                                <p class="player-name">Nome do Atleta</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </main>
 
 

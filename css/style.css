@@ -218,3 +218,118 @@ button {
 #btn-fechar:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
+
+.oculto {
+    display: none !important;
+}
+
+.titulo-pagina {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.titulo-pagina h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.titulo-pagina p {
+    font-size: 1.5rem;
+}
+
+.elenco-categoria {
+    margin-bottom: 50px;
+}
+
+.elenco-categoria h3 {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    padding: 0 10px;
+}
+
+.posicao-grupo {
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.posicao-grupo h4 {
+    color: #555;
+    border-left: 4px solid #333;
+    padding-left: 10px;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+
+.player-card {
+    background-color: #ffcc00;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px 15px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.player-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.player-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    color: #111;
+}
+
+.seletor-times {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.btn-time {
+    background-color: transparent;
+    border: 2px solid #333;
+    color: #333;
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Manrope', sans-serif;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-time:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-time.ativo {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
