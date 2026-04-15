@@ -218,14 +218,14 @@ button {
 }
 
 #btn-menu {
-    margin-left: 10px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     transition: all 0.3s;
-    border-radius: 3px;
+    border-radius: 4px;
 }
 
 #btn-menu:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1)
 }
 
 #btn-fechar {
