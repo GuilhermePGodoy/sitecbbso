@@ -1,4 +1,4 @@
-# Site CBBSo - Time B de Vôlei
+# Site CBBSO - Time B de Vôlei
 
 ## Objetivo
 
@@ -17,6 +17,7 @@ Página web para apresentação e informações do time B de vôlei da universid
 - Informações sobre do time 
 - Formulário de inscrição
 - Lista de espera
+- Elenco (Time B e C)
 - Contato e redes sociais
 
 ### Técnicos
