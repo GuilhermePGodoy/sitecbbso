@@ -1,33 +1,15 @@
-// 1. Selecionamos todos os elementos necessários
+//  Selecionamos todos os elementos necessários
 const btnAbrir = document.getElementById('btn-menu');
 const btnFechar = document.getElementById('btn-fechar');
 const menuLateral = document.getElementById('menu-lateral');
-const overlay = document.getElementById('overlay-menu');
+const overlay = document.getElementById('overlay-menu'); // Fundo escuro que aparece atrás do menu
 
-// Pega os links do menu
-const linkHome = document.getElementById('link-home');
-const linkElenco = document.getElementById('link-elenco');
-
-// Pega as telas de conteúdo
-const telaHome = document.getElementById('tela-home');
-const telaElenco = document.getElementById('tela-elenco');
-
-// Pega os botões de seleção de time
-const btnTimeB = document.getElementById('btn-time-b');
-const btnTimeC = document.getElementById('btn-time-c');
-
-// Pega as seções de cada time
-const secaoTimeB = document.getElementById('elenco-time-b');
-const secaoTimeC = document.getElementById('elenco-time-c');
-
-// 2. Criamos a função que alterna o estado do menu
-// Ela adiciona a classe se não existir, e remove se já existir
 function toggleMenu() {
     menuLateral.classList.toggle('ativo');
     overlay.classList.toggle('ativo');
 }
 
-// 3. Atribuímos a função aos eventos de clique
+//  Atribuímos a função aos eventos de clique
 // Abrir ao clicar no ícone ☰
 btnAbrir.addEventListener('click', toggleMenu);
 
@@ -37,41 +19,89 @@ btnFechar.addEventListener('click', toggleMenu);
 // Fechar ao clicar no overlay (fundo escuro fora do menu)
 overlay.addEventListener('click', toggleMenu);
 
-// 4. Bônus: Fechar ao apertar a tecla "Esc"
+// Fechar ao apertar a tecla "Esc"
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && menuLateral.classList.contains('ativo')) {
         toggleMenu();
     }
 });
 
-// 5. Gerenciar a navegação entre telas
-function mudarTela (telaAtiva, telaInativa, linkAtivo, linkInativo) {
-    // Esconde a tela inativa e mostra a ativa
-    telaInativa.classList.add('oculto');
-    telaAtiva.classList.remove('oculto');
 
-    // Atualiza o estado dos links
-    linkInativo.classList.remove('ativo');
-    linkAtivo.classList.add('ativo');
+// Mapeamento: id do link → id da tela correspondente
+const navegacao = [
+    { linkId: 'link-home', telaId: 'tela-home' },
+    { linkId: 'link-elenco', telaId: 'tela-elenco' },
+    { linkId: 'link-lista', telaId: 'tela-lista' },
+    { linkId: 'link-inscricao', telaId: 'tela-inscricao' },
+];
+
+// Coleta todos os links e telas para operar genericamente
+const todosLinks = navegacao.map(n => document.getElementById(n.linkId));
+const todasTelas = navegacao.map(n => document.getElementById(n.telaId));
+
+/**
+ * Muda para a tela correspondente ao índice fornecido.
+ * Esconde todas as telas, mostra só a selecionada.
+ * Remove .ativo de todos os links, marca só o selecionado.
+ */
+function mudarTela(indice) {
+    // Esconde todas as telas e desmarca todos os links
+    todasTelas.forEach(tela => tela.classList.add('oculto'));
+    todosLinks.forEach(link => link.classList.remove('ativo'));
+
+    // Mostra a tela alvo e marca o link ativo
+    todasTelas[indice].classList.remove('oculto');
+    todosLinks[indice].classList.add('ativo');
 }
 
-// Evento para o link "Página Inicial"
-linkHome.addEventListener('click', (event) => {
-    event.preventDefault(); // Evita o comportamento padrão do link
-    mudarTela(telaHome, telaElenco, linkHome, linkElenco);
+// Registra o evento de clique em cada link do menu
+todosLinks.forEach((link, indice) => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault();
+        mudarTela(indice);
+        // Fecha o menu lateral após a navegação
+        if (menuLateral.classList.contains('ativo')) {
+            toggleMenu();
+        }
+    });
 });
 
-// Evento para o link "Nosso Elenco"
-linkElenco.addEventListener('click', (event) => {
-    event.preventDefault(); // Evita o comportamento padrão do link
-    mudarTela(telaElenco, telaHome, linkElenco, linkHome);
+// Clicar no logo do header volta para a página inicial
+const linkBanner = document.getElementById('link-banner');
+linkBanner.addEventListener('click', (event) => {
+    event.preventDefault();
+    mudarTela(0);
 });
 
-// 6. Gerenciar a navegação entre os times na seção "Nosso Elenco"
-btnTimeB.addEventListener('click', function() {
-    mudarTela(secaoTimeB, secaoTimeC, btnTimeB, btnTimeC);
+
+// Alternância entre Time B e Time C no Elenco
+const times = [
+    { btnId: 'btn-time-b', secaoId: 'elenco-time-b' },
+    { btnId: 'btn-time-c', secaoId: 'elenco-time-c' },
+];
+
+const todosBtnsTime = times.map(t => document.getElementById(t.btnId));
+const todasSecoes = times.map(t => document.getElementById(t.secaoId));
+
+function alternarTime(indice) {
+    todasSecoes.forEach(secao => secao.classList.add('oculto'));
+    todosBtnsTime.forEach(btn => btn.classList.remove('ativo'));
+
+    todasSecoes[indice].classList.remove('oculto');
+    todosBtnsTime[indice].classList.add('ativo');
+}
+
+todosBtnsTime.forEach((btn, indice) => {
+    btn.addEventListener('click', () => alternarTime(indice));
 });
 
-btnTimeC.addEventListener('click', function() {
-    mudarTela(secaoTimeC, secaoTimeB, btnTimeC, btnTimeB);
-});
+
+// Formulário de inscrição
+const formInscricao = document.getElementById('form-inscricao');
+if (formInscricao) {
+    formInscricao.addEventListener('submit', (event) => {
+        event.preventDefault();
+        alert('Inscrição enviada com sucesso! (Nota: sem back-end, os dados não são salvos ainda.)');
+        formInscricao.reset();
+    });
+}

@@ -1,6 +1,10 @@
+/*Base  */
 body {
     margin: 0;
+    background-color: #fffff1;
 }
+
+/* Layout principal da página */
 
 .grid-container {
     display: grid;
@@ -8,16 +12,12 @@ body {
     grid-template-rows: 30vh 1fr auto;
     min-height: 100vh;
     grid-template-areas:
-        "nav"
+        "banner"
         "content"
         "foot";
 }
 
-header {
-    display: flex;
-    justify-content: flex-start
-}
-
+/*  Menu Lateral  */
 #menu-lateral {
     position: fixed;
     top: 0;
@@ -90,13 +90,12 @@ header {
     /* Uma linha sutil para separar o cabeçalho do menu */
 }
 
-/* Camada principal (de */
-.nav {
-    grid-area: nav;
+/* Camada principal do header */
+.banner {
+    grid-area: banner;
     position: relative;
     overflow: hidden;
     background-color: #ffcc00;
-    padding-bottom: 60px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     z-index: 0;
 
@@ -107,11 +106,22 @@ header {
     padding: 0 50px;
 }
 
-.nav h1 {
+.banner h1 {
     font-size: 2.5rem;
     font-weight: bold;
     color: #333;
 }
+
+#link-banner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+
 
 .logo {
     width: 120px;
@@ -119,7 +129,7 @@ header {
 }
 
 /* Camada da foto (do fundo)*/
-.nav::after {
+.banner::after {
     content: '';
     position: absolute;
     top: 0;
@@ -136,7 +146,7 @@ header {
 }
 
 /* Camada amarela translúcida (intermediaria)*/
-.nav::before {
+.banner::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -144,6 +154,7 @@ header {
     z-index: -1;
 }
 
+/*Base dos botões  */
 button {
     background-color: transparent;
     border: none;
@@ -152,14 +163,12 @@ button {
     cursor: pointer;
 }
 
+/* Área de conteúdo principal*/
 .content {
     grid-area: content;
     overflow-y: auto;
     height: 100%;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
     background-color: #fffff1;
-    gap: 40px;
     padding: 50px 0 60px;
 }
 
@@ -169,12 +178,21 @@ button {
     margin: 20px auto;
     background-color: #fffff5;
     border-radius: 20px;
-    padding: 40px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     text-align: center;
     font-size: 20px;
     font-family: "Manrope", Arial, sans-serif;
     padding: 10px 20px;
+}
+
+.paragrafo-content h2 {
+    font-family: "Manrope", Arial, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #333;
+    margin: 10px 0 8px;
+    padding-bottom: 8px;
+    display: inline-block;
 }
 
 .footer {
@@ -196,7 +214,7 @@ button {
 
 .lista-lateral li a:hover {
     background-color: #ffcc00;
-    color: #fff;
+    color: #333;
 }
 
 #btn-menu {
@@ -220,6 +238,7 @@ button {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Usada pelo JS para esconder telas e seções */
 .oculto {
     display: none !important;
 }
@@ -245,10 +264,9 @@ button {
 
 .elenco-categoria h3 {
     border-bottom: 2px solid #ccc;
-    padding-bottom: 5px;
     margin-bottom: 20px;
     font-size: 1.5rem;
-    padding: 0 10px;
+    padding: 0 10px 5px;
 }
 
 .posicao-grupo {
@@ -343,6 +361,267 @@ button {
 }
 
 .footer a i:hover {
-    color: #333;
+    color: #555;
     font-size: 1.2rem;
+}
+
+/* ========== Lista de Espera ========== */
+
+.lista-espera-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+    overflow-x: auto;
+}
+
+.tabela-lista {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Manrope', sans-serif;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.tabela-lista thead {
+    background-color: #ffcc00;
+}
+
+.tabela-lista th,
+.tabela-lista td {
+    padding: 14px 20px;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.tabela-lista th {
+    font-weight: 700;
+    color: #333;
+}
+
+.tabela-lista tbody tr {
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+.tabela-lista tbody tr:hover {
+    background-color: #fffbe6;
+}
+
+.status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.status.aguardando {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status.aprovado {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Formulário de Inscrição  */
+
+.form-inscricao {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: 'Manrope', sans-serif;
+}
+
+.form-grupo {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-grupo label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.form-grupo input,
+.form-grupo select,
+.form-grupo textarea {
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Manrope', sans-serif;
+    transition: border-color 0.3s;
+    background-color: #fff;
+}
+
+.form-grupo input:focus,
+.form-grupo select:focus,
+.form-grupo textarea:focus {
+    outline: none;
+    border-color: #ffcc00;
+    box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.2);
+}
+
+.form-grupo textarea {
+    resize: vertical;
+}
+
+.btn-enviar {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Manrope', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-enviar:hover {
+    background-color: #e6b800;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsividade  */
+/* Tablets e telas médias */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-rows: 22vh 1fr auto;
+    }
+
+    .banner {
+        padding: 0 25px;
+    }
+
+    .banner h1 {
+        font-size: 1.8rem;
+    }
+
+    .logo {
+        width: 80px;
+        height: 60px;
+    }
+
+    .paragrafo-content {
+        width: 95%;
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 15px;
+    }
+
+    .player-number {
+        font-size: 2rem;
+    }
+
+    .titulo-pagina h2 {
+        font-size: 1.5rem;
+    }
+
+    .titulo-pagina p {
+        font-size: 1.1rem;
+    }
+
+    .footer {
+        padding: 0 20px;
+        gap: 20px;
+    }
+
+    .tabela-lista th,
+    .tabela-lista td {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-rows: 18vh 1fr auto;
+    }
+
+    .banner {
+        padding: 0 15px;
+    }
+
+    .banner h1 {
+        font-size: 1.3rem;
+    }
+
+    .logo {
+        width: 60px;
+        height: 45px;
+    }
+
+    .paragrafo-content {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 10px;
+    }
+
+    .player-card {
+        padding: 15px 10px;
+    }
+
+    .player-number {
+        font-size: 1.8rem;
+    }
+
+    .player-name {
+        font-size: 0.95rem;
+    }
+
+    .seletor-times {
+        gap: 10px;
+    }
+
+    .btn-time {
+        padding: 8px 18px;
+        font-size: 0.95rem;
+    }
+
+    .footer {
+        padding: 0 15px;
+        gap: 15px;
+        font-size: 0.85rem;
+    }
+
+    .form-inscricao {
+        width: 95%;
+    }
+
+    .tabela-lista th,
+    .tabela-lista td {
+        padding: 8px 8px;
+        font-size: 0.85rem;
+    }
+
+    #menu-lateral {
+        width: 250px;
+        left: -250px;
+    }
+
+    #menu-lateral.ativo {
+        transform: translateX(250px);
+    }
 }
