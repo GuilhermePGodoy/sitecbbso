@@ -33,6 +33,7 @@ const navegacao = [
     { linkId: 'link-elenco', telaId: 'tela-elenco' },
     { linkId: 'link-lista', telaId: 'tela-lista' },
     { linkId: 'link-inscricao', telaId: 'tela-inscricao' },
+    { linkId: 'link-adm-login', telaId: 'tela-adm-login' },
 ];
 
 // Coleta todos os links e telas para operar genericamente
@@ -95,6 +96,15 @@ todosBtnsTime.forEach((btn, indice) => {
     btn.addEventListener('click', () => alternarTime(indice));
 });
 
+
+// Formulário de login administrativo
+const formLogin = document.querySelector('.login-form');
+if (formLogin) {
+    formLogin.addEventListener('submit', (event) => {
+        event.preventDefault();
+        alert('Login indisponível: o sistema ainda não possui back-end.');
+    });
+}
 
 // Formulário de inscrição
 const formInscricao = document.getElementById('form-inscricao');

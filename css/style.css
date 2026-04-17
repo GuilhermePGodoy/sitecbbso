@@ -646,6 +646,7 @@ button {
     max-width: 420px;
     padding: 20px;
     box-sizing: border-box;
+    margin: 0 auto;
 }
 
 /* O cartão branco do login */
