@@ -33,7 +33,6 @@ const navegacao = [
     { linkId: 'link-elenco', telaId: 'tela-elenco' },
     { linkId: 'link-lista', telaId: 'tela-lista' },
     { linkId: 'link-inscricao', telaId: 'tela-inscricao' },
-    { linkId: 'link-adm-login', telaId: 'tela-adm-login' },
 ];
 
 // Coleta todos os links e telas para operar genericamente
