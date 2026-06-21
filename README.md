@@ -20,17 +20,18 @@ Atualmente, a comunicação sobre seletivas, gerenciamento da lista de espera e 
 - Dar transparência e organizar a lista de espera.
 - Possuir uma área de gestão para manter o elenco atualizado.
 
-### Requisitos implementados (Front-End)
-- Informações sobre do time 
-- Formulário de inscrição
-- Lista de espera
-- Elenco (Time B e C)
+### Portal público
+- Informações sobre o time
+- Formulário de inscrição (envia para a API)
+- Lista de espera (carregada da API, sem dados sensíveis)
+- Elenco (Time B e C, carregado da API com as fotos dos atletas)
 - Contato e redes sociais
 
-### Requisitos Futuros (Back-end Previsto)
-- Autenticação de usuários e sistema de login (Com usuário e Administrador)
-- CRUD de objetos em que o administrador poderá Criar, Ler, Atualizar e Deletar perfis de atletas diretamente pelo sistema, além de aprovar ou remover jogadores da lista de espera.
-- upload de imagens atrelada ao CRUD para que se faça o upload das fotos de perfil dos atletas e atualize nas páginas.
+### Área administrativa
+- Autenticação de administrador com login (senha em hash bcrypt + JWT em cookie httpOnly).
+- CRUD de atletas: o administrador pode Criar, Ler, Atualizar e Deletar os perfis do elenco direto pelo painel.
+- Upload de imagens atrelado ao CRUD para enviar as fotos de perfil dos atletas, que são atualizadas nas páginas.
+- Gestão da lista de espera: aprovar, recusar ou remover as inscrições recebidas.
 
 ### Técnicos
 - Design responsivo
@@ -40,7 +41,34 @@ Atualmente, a comunicação sobre seletivas, gerenciamento da lista de espera e 
 
 ## Tecnologias
 
-- HTML5
-- CSS3 (Grid / Flexbox)
-- JavaScript
+**Front-end**
+- React (Vite) + React Router
+- Bootstrap 5 (pontual) com CSS próprio mantendo a identidade visual
 
+**Back-end**
+- Node.js + Express (organização MVC: rotas → controllers → models)
+- PostgreSQL com Sequelize
+- Autenticação com bcryptjs + JWT (jsonwebtoken)
+- Upload de imagens com multer
+
+## Como rodar
+
+Pré-requisitos: Node.js e PostgreSQL instalados e rodando.
+
+**Back-end**
+```
+cd backend
+npm install
+cp .env.example .env   # preencha as credenciais do banco e o AUTH_SECRET
+npm run seed           # opcional: carrega o elenco inicial do Time B
+npm run dev            # sobe a API em http://localhost:3000
+```
+
+**Front-end**
+```
+cd frontend
+npm install
+npm run dev            # sobe o site em http://localhost:5173
+```
+
+Em desenvolvimento o Vite faz proxy de `/api` e `/uploads` para a porta 3000.

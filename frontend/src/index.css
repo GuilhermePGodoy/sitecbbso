@@ -25,7 +25,8 @@ body {
     /* Largura negativa para ele sumir */
     width: 300px;
     height: 100vh;
-    background-color: #f7f7f7;
+    background-color: #1b1b1b;
+    /* Escuro, na mesma linguagem visual do painel administrativo */
     transition: all 0.3s;
     z-index: 1000;
 }
@@ -33,23 +34,38 @@ body {
 /* Remove os pontinhos pretos da lista */
 #menu-lateral ul {
     list-style: none;
-    padding: 0;
-    margin: 20px 0;
+    padding: 8px 12px;
+    margin: 16px 0;
 }
 
-/* Estiliza o item da lista e o link */
+/* Estiliza o item da lista e o link (pílulas, como no painel) */
 #menu-lateral ul li a {
     text-decoration: none;
-    /* Tira o sublinhado */
-    color: #333;
-    /* Define uma cor sóbria */
+    color: rgba(255, 255, 255, 0.78);
     display: block;
-    /* Faz o link ocupar a linha toda (melhora o clique) */
-    padding: 15px 25px;
-    /* Espaçamento interno */
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s;
+}
+
+/* Marca/cabeçalho do menu */
+#menu-lateral h3 {
+    color: #fff;
     font-size: 1.1rem;
-    transition: background 0.3s, color 0.3s;
-    /* Transição suave */
+    margin: 0;
+}
+
+.menu-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-brand img {
+    width: 32px;
+    height: 32px;
 }
 
 /* Quando o JS adiciona a classe .ativo */
@@ -85,8 +101,8 @@ body {
     /* Empurra o h3 pra esquerda e o botão pra direita */
     align-items: center;
     /* Alinha os dois verticalmente no centro */
-    padding: 8px 20px;
-    border-bottom: 1px solid #eee;
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     /* Uma linha sutil para separar o cabeçalho do menu */
 }
 
@@ -138,7 +154,7 @@ body {
     transform: translateX(-50%);
     height: 100%;
     aspect-ratio: 637 / 288;
-    background: url('../images/voleibtime2.jpg') center center / 100% 100% no-repeat;
+    background: url('/images/voleibtime2.jpg') center center / 100% 100% no-repeat;
     /* Fade nos lados da foto */
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
     mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
@@ -169,7 +185,18 @@ button {
     overflow-y: auto;
     height: 100%;
     background-color: #fffff1;
-    padding: 50px 0 60px;
+    padding: 50px 0 70px;
+}
+
+/* Cada página renderiza um <div> dentro de .content: aqui ele vira uma
+   coluna centralizada e com respiro lateral, deixando todo o conteúdo
+   (títulos, cards, formulários) alinhado de forma consistente. */
+.content > div {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
 }
 
 .paragrafo-content {
@@ -213,8 +240,14 @@ button {
 }
 
 .lista-lateral li a:hover {
+    background-color: #262626;
+    color: #fff;
+}
+
+/* Link da página atual (NavLink .active) — destaque amarelo, como no painel */
+.lista-lateral li a.active {
     background-color: #ffcc00;
-    color: #333;
+    color: #2a2410;
 }
 
 #btn-menu {
@@ -229,7 +262,8 @@ button {
 }
 
 #btn-fechar {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    color: #fff;
     transition: all 0.3s;
     border-radius: 3px;
 }
@@ -306,6 +340,45 @@ button {
 .player-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.player-foto {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Avisos (toasts). Prefixo "cb-" para não colidir com a classe .toast do
+   Bootstrap, que vem com display:none. */
+.cb-toast-area {
+    position: fixed;
+    bottom: 70px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 2000;
+}
+
+.cb-toast {
+    background-color: #1b1b1b;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    border-left: 4px solid #ffcc00;
+    max-width: 320px;
+    cursor: pointer;
+}
+
+.cb-toast.erro {
+    border-left-color: #c0392b;
 }
 
 .player-number {
