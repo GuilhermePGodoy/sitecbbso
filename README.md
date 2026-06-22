@@ -55,14 +55,28 @@ Atualmente, a comunicação sobre seletivas, gerenciamento da lista de espera e 
 
 Pré-requisitos: Node.js e PostgreSQL instalados e rodando.
 
+**Banco de dados**
+
+Crie o banco e o usuário no PostgreSQL (ajuste os nomes/senha conforme o seu `.env`):
+```
+CREATE DATABASE cbbso;
+CREATE USER cbbso_user WITH PASSWORD 'sua_senha_aqui';
+GRANT ALL PRIVILEGES ON DATABASE cbbso TO cbbso_user;
+```
+As tabelas são criadas automaticamente pelo Sequelize quando a API sobe.
+
 **Back-end**
 ```
 cd backend
 npm install
-cp .env.example .env   # preencha as credenciais do banco e o AUTH_SECRET
-npm run seed           # opcional: carrega o elenco inicial do Time B
+cp .env.example .env   # preencha o banco, o AUTH_SECRET e a ADMIN_SENHA
+npm run seed           # cria o admin inicial e carrega o elenco do Time B
 npm run dev            # sobe a API em http://localhost:3000
 ```
+
+O `npm run seed` cria o administrador definido no `.env` (`ADMIN_EMAIL` /
+`ADMIN_SENHA`). Use essas credenciais para entrar na área administrativa em
+`/admin`. Rodar o seed de novo não duplica nem troca a senha do admin.
 
 **Front-end**
 ```
