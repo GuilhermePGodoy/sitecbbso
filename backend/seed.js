@@ -12,7 +12,6 @@ const ADMIN_PADRAO = {
 };
 
 // Elenco real do Time B (extraído do site original).
-// O Time C ainda não tem nomes definidos — cadastre pelo painel quando tiver.
 const timeB = [
   { numero: 18, nome: 'Godoy', posicao: 'levantador' },
   { numero: 4, nome: 'Kevin', posicao: 'levantador' },
@@ -30,13 +29,31 @@ const timeB = [
   { numero: 14, nome: 'Caue', posicao: 'oposto' },
 ].map((a) => ({ ...a, time: 'B' }));
 
+// Elenco do Time C. Os nomes marcados ainda são provisórios — ajuste pelo painel.
+const timeC = [
+  { numero: 1, nome: 'Rodrigo', posicao: 'levantador' },
+  { numero: 2, nome: 'Higor', posicao: 'levantador' },
+  { numero: 7, nome: 'Colombia', posicao: 'ponteiro' },
+  { numero: 8, nome: 'Orlando', posicao: 'oposto' },
+  { numero: 11, nome: 'Matheus', posicao: 'libero' },
+  { numero: 3, nome: 'Bruno', posicao: 'ponteiro' },
+  { numero: 13, nome: 'Lucas', posicao: 'ponteiro' },
+  { numero: 15, nome: 'Felipe', posicao: 'ponteiro' },
+  { numero: 16, nome: 'Gustavo', posicao: 'central' },
+  { numero: 20, nome: 'Rafael', posicao: 'central' },
+  { numero: 22, nome: 'Thiago', posicao: 'central' },
+  { numero: 23, nome: 'Pedro', posicao: 'central' },
+  { numero: 24, nome: 'André', posicao: 'oposto' },
+  { numero: 25, nome: 'Vinicius', posicao: 'libero' },
+].map((a) => ({ ...a, time: 'C' }));
+
 async function seed() {
   await sequelize.authenticate();
   await sequelize.sync();
 
   // Limpa atletas e a inscrição de teste; mantém os admins.
   await Atleta.destroy({ where: {} });
-  await Atleta.bulkCreate(timeB);
+  await Atleta.bulkCreate([...timeB, ...timeC]);
   await Inscricao.destroy({ where: { email: 'cand@test.com' } });
 
   // Cria o admin inicial só se ainda não existir nenhum com esse e-mail,
@@ -50,7 +67,7 @@ async function seed() {
     console.log(`✅ Admin criado: ${ADMIN_PADRAO.email}`);
   }
 
-  console.log(`✅ ${timeB.length} atletas do Time B inseridos. Time C vazio.`);
+  console.log(`✅ ${timeB.length} atletas do Time B e ${timeC.length} do Time C inseridos.`);
   await sequelize.close();
 }
 

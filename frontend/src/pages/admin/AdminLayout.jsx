@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { NavLink, Outlet, useNavigate, Navigate } from 'react-router-dom';
+import { NavLink, Link, Outlet, useNavigate, Navigate } from 'react-router-dom';
 import { api } from '../../api/client.js';
 import '../../admin.css';
 
@@ -41,13 +41,13 @@ export default function AdminLayout() {
   return (
     <div className="admin-shell">
       <aside className="admin-sidebar">
-        <div className="admin-brand">
+        <Link to="/" className="admin-brand" title="Voltar ao site">
           <img src="/images/cbbso-logo-512x512.png" alt="" />
           <div>
             <strong>CBBSO</strong>
             <span>Painel</span>
           </div>
-        </div>
+        </Link>
 
         <nav className="admin-nav">
           <NavLink to="/admin/atletas">Atletas</NavLink>

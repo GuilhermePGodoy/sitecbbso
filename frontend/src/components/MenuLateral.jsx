@@ -12,10 +12,13 @@ export default function MenuLateral({ aberto, fechar }) {
       ></div>
 
       <nav id="menu-lateral" className={aberto ? 'ativo' : ''}>
-        <div>
+        <div className="menu-topo">
           <div className="menu-brand">
             <img src="/images/cbbso-logo-512x512.png" alt="" />
-            <h3>Menu</h3>
+            <div className="menu-brand-texto">
+              <strong>Vôlei CBBSO</strong>
+              <span>Menu</span>
+            </div>
           </div>
           <button id="btn-fechar" aria-label="Fechar Menu" onClick={fechar}>
             &times;
