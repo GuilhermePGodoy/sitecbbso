@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site CBBSO — Apresentação</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --amarelo: #ffcc00;
+      --tinta: #1c1c1c;
+      --tinta-2: #262626;
+      --creme: #fffff1;
+      --cinza: #b8b8b8;
+    }
+
+    .reveal {
+      font-family: 'Manrope', sans-serif;
+      font-size: 30px;
+      color: var(--creme);
+    }
+    .reveal .slides { text-align: left; }
+
+    .reveal-viewport {
+      background: var(--tinta);
+      background-image:
+        radial-gradient(circle at 80% 0%, rgba(255,204,0,0.10), transparent 45%),
+        radial-gradient(circle at 0% 100%, rgba(255,204,0,0.06), transparent 40%);
+    }
+
+    .reveal h1, .reveal h2, .reveal h3 {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+      color: var(--creme);
+      text-transform: none;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 {
+      font-size: 1.35em;
+      border-bottom: 4px solid var(--amarelo);
+      display: inline-block;
+      padding-bottom: .15em;
+      margin-bottom: .7em;
+    }
+    .reveal h3 { font-size: 1.0em; color: var(--amarelo); }
+
+    .reveal .amarelo { color: var(--amarelo); }
+    .reveal strong { color: var(--amarelo); font-weight: 700; }
+    .reveal em { color: var(--cinza); font-style: normal; }
+
+    .reveal ul { margin-left: .4em; }
+    .reveal li { margin: .35em 0; line-height: 1.35; }
+    .reveal li::marker { color: var(--amarelo); }
+
+    .reveal .legenda {
+      color: var(--cinza);
+      font-size: .7em;
+      font-weight: 600;
+    }
+
+    .reveal .chip {
+      display: inline-block;
+      background: rgba(255,204,0,0.12);
+      border: 1px solid rgba(255,204,0,0.35);
+      color: var(--amarelo);
+      border-radius: 999px;
+      padding: .12em .7em;
+      font-size: .62em;
+      font-weight: 700;
+      margin: .15em .25em .15em 0;
+    }
+
+    .reveal pre {
+      box-shadow: none;
+      width: 100%;
+      font-size: .62em;
+    }
+    .reveal pre code {
+      font-family: 'JetBrains Mono', monospace;
+      background: #111;
+      border: 1px solid rgba(255,204,0,0.25);
+      border-radius: 12px;
+      padding: 1em 1.2em;
+      color: var(--creme);
+      max-height: none;
+    }
+
+    .reveal table { font-size: .72em; }
+    .reveal table th {
+      color: var(--amarelo);
+      border-bottom: 2px solid var(--amarelo);
+    }
+    .reveal table td { border-bottom: 1px solid rgba(255,255,255,0.10); }
+
+    .reveal .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2em;
+      align-items: start;
+    }
+
+    .reveal .card {
+      background: var(--tinta-2);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-left: 4px solid var(--amarelo);
+      border-radius: 14px;
+      padding: .7em 1em;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+    .reveal .card h3 { margin-top: 0; }
+    .reveal .card p { font-size: .8em; margin: .2em 0 0; color: var(--cinza); }
+
+    .reveal .capa { text-align: center; }
+    .reveal .capa img { width: 190px; margin-bottom: .2em; filter: drop-shadow(0 8px 24px rgba(0,0,0,.5)); }
+    .reveal .capa .sub { color: var(--cinza); font-weight: 600; font-size: .8em; }
+    .reveal .capa .tag { color: var(--amarelo); font-weight: 700; }
+
+    .reveal .fluxo {
+      font-family: 'JetBrains Mono', monospace;
+      text-align: center;
+      font-size: .8em;
+      line-height: 2.2;
+      color: var(--creme);
+    }
+    .reveal .fluxo b { color: var(--amarelo); }
+
+    /* numeração / rodapé */
+    .reveal .slide-number { background: transparent; color: var(--amarelo); font-weight: 700; }
+    .reveal .footer {
+      position: absolute; bottom: -0.2em; left: 0;
+      font-size: .5em; color: var(--cinza); font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <!-- 1. CAPA -->
+    <section data-auto-animate>
+      <div class="capa">
+        <img src="frontend/public/images/cbbso-logo-512x512.png" alt="CBBSO">
+        <h1>Site do <span class="amarelo">CBBSO</span></h1>
+        <p class="sub">Time Masculino de Vôlei &middot; Entrega final</p>
+        <p class="tag">Davi &nbsp;|&nbsp; SCC0219 &nbsp;|&nbsp; ICMC-USP</p>
+        <p class="legenda" style="margin-top:1.2em">De página estática a aplicação <strong>full-stack</strong></p>
+      </div>
+    </section>
+
+    <!-- 2. CONTEXTO -->
+    <section>
+      <h2>Contexto &amp; problema</h2>
+      <ul>
+        <li>Site institucional do time: <strong>elenco</strong>, <strong>inscrições</strong>, <strong>lista de espera</strong></li>
+        <li>1ª entrega: HTML / CSS / JS <em>estático</em> — elenco escrito na mão</li>
+        <li>Time muda: entra atleta, sai atleta, chega inscrição</li>
+        <li>Precisava de: <strong>dados reais e gerenciáveis</strong> + <strong>área restrita</strong> pro admin</li>
+      </ul>
+      <p class="footer">SCC0219 — Site CBBSO</p>
+    </section>
+
+    <!-- 3. POR QUE REACT -->
+    <section>
+      <h2>Por que trocar para React</h2>
+      <div class="grid2">
+        <div>
+          <p><strong>Antes:</strong> HTML duplicado, elenco fixo no código, zero reuso.</p>
+          <p style="margin-top:.6em"><strong>React + Vite:</strong></p>
+        </div>
+        <ul style="font-size:.92em">
+          <li><strong>Reuso:</strong> componentes (PlayerCard, Banner, Menu…)</li>
+          <li><strong>Dados dinâmicos:</strong> estado + API → tela sempre reflete o banco</li>
+          <li><strong>react-router:</strong> várias páginas numa SPA, sem recarregar</li>
+          <li><strong>Vite:</strong> dev rápido + build otimizado</li>
+          <li>Stack <strong>ensinado na disciplina</strong></li>
+        </ul>
+      </div>
+      <p class="legenda" style="margin-top:1em">Bootstrap 5 usado de forma seletiva — identidade visual própria preservada (amarelo, Manrope).</p>
+      <p class="footer">SCC0219 — Site CBBSO</p>
+    </section>
+
+    <!-- 4. ARQUITETURA -->
+    <section>
+      <h2>Arquitetura geral</h2>
+      <p class="fluxo">
+        [ <b>React + Vite</b> ] &nbsp;—/api→&nbsp; [ <b>Express</b> ] &nbsp;→&nbsp; [ <b>PostgreSQL</b> ]<br>
+        <span style="font-size:.7em; color:var(--cinza)">frontend :5173 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; backend :3000 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; via Sequelize</span>
+      </p>
+      <ul>
+        <li>Front e back <strong>separados</strong>, conversam por HTTP/JSON (API REST)</li>
+        <li>Vite faz <strong>proxy</strong> de <code>/api</code> e <code>/uploads</code> pro Express</li>
+        <li>Back-end serve também as <strong>fotos</strong> enviadas</li>
+      </ul>
+      <p class="footer">SCC0219 — Site CBBSO</p>
+    </section>
+
+    <!-- 5. BACKEND STACK / MVC -->
+    <section>
+      <h2>Back-end — Node + Express (MVC)</h2>
+      <p class="fluxo" style="font-size:.7em; margin:.2em 0 .8em"><b>app</b> → <b>routes</b> → <b>controllers</b> → <b>models</b></p>
+      <div class="grid2">
+        <ul style="font-size:.88em">
+          <li><strong>Express</strong> — servidor e rotas</li>
+          <li><strong>Sequelize</strong> (ORM) + <strong>pg</strong> — Postgres sem SQL na mão</li>
+        </ul>
+        <ul style="font-size:.88em">
+          <li><strong>dotenv</strong> — segredos fora do código (<code>.env</code>)</li>
+          <li><strong>cors</strong> + <strong>cookie-parser</strong></li>
+        </ul>
+      </div>
+      <p>
+        <span class="chip">express</span><span class="chip">sequelize</span><span class="chip">pg</span>
+        <span class="chip">bcryptjs</span><span class="chip">jsonwebtoken</span><span class="chip">multer</span>
+        <span class="chip">cors</span><span class="chip">cookie-parser</span><span class="chip">dotenv</span>
+      </p>
+      <p class="footer">SCC0219 — Site CBBSO</p>
+    </section>
+
+    <!-- 6. MODELO DE DADOS -->
+    <section>
+      <h2>Modelo de dados</h2>
+      <div class="grid2" style="grid-template-columns:1fr 1fr 1fr">
+        <div class="card">
+          <h3>Atleta</h3>
+          <p>nome, posição, número, time (B/C), foto</p>
+        </div>
+        <div class="card">
+          <h3>Inscrição</h3>
+          <p>candidato + status: pendente / aprovado / recusado</p>
+        </div>
+        <div class="card">
+          <h3>Admin</h3>
+          <p>usuário do painel — senha com <strong>hash</strong></p>
+        </div>
+      </div>
+      <p class="legenda" style="margin-top:1em">Tabelas criadas automaticamente pelo Sequelize (<code>sync</code>).</p>
+      <p class="footer">SCC0219 — Site CBBSO</p>
+    </section>
+
+    <!-- 7. API REST -->
+    <section>
+      <h2>A API REST</h2>
+      <table>
+        <thead>
+          <tr><th>Recurso</th><th>Público</th><th>Restrito (admin)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>/api/atletas</code></td><td>listar elenco</td><td>criar / editar / excluir</td></tr>
+          <tr><td><code>/api/inscricoes</code></td><td>enviar (POST) · <code>/publica</code> ler</td><td>aprovar / recusar / excluir</td></tr>
+          <tr><td><code>/api/auth</code></td><td>—</td><td>registrar / login / logout / eu</td></tr>
+          <tr><td><code>/api/upload</code></td><td>—</td><td>enviar foto</td></tr>
+        </tbody>
+      </table>
+      <p class="legenda" style="margin-top:1em">Regra de ouro: <strong>ler é público, escrever é protegido</strong>.</p>
+      <p class="footer">SCC0219 — Site CBBSO</p>
+    </section>
+
+    <!-- 8. AUTENTICACAO -->
+    <section>
+      <h2 style="margin-bottom:.45em">Autenticação &amp; segurança</h2>
+      <ul style="font-size:.92em">
+        <li>Senha guardada com <strong>bcryptjs</strong> (hash) — nunca em texto puro</li>
+        <li>Login confere a senha → gera um <strong>JWT</strong> assinado</li>
+        <li>Token vai num <strong>cookie httpOnly</strong> (7 dias) — o JS não acessa</li>
+        <li>Middleware <code>auth</code> valida o token em toda rota de escrita</li>
+      </ul>
+      <pre style="font-size:.52em; margin-top:.3em"><code>// token carrega a identidade assinada → { sub, nome, email, admin }</code></pre>
+      <p class="footer">SCC0219 — Site CBBSO</p>
+    </section>
+
+    <!-- 9. UPLOAD -->
+    <section>
+      <h2>Upload de fotos</h2>
+      <ul>
+        <li><strong>multer</strong> recebe o arquivo e salva em <code>backend/uploads/</code></li>
+        <li>Caminho guardado no atleta; servido em <code>/uploads</code></li>
+        <li><strong>Limpeza:</strong> ao trocar/excluir a foto, o arquivo antigo é apagado</li>
+        <li>Sem imagens órfãs acumulando no disco</li>
+      </ul>
+      <p class="footer">SCC0219 — Site CBBSO</p>
+    </section>
+
+    <!-- 10. FRONTEND ENTREGUE -->
+    <section>
+      <h2>Front-end — o que foi construído</h2>
+      <div class="grid2">
+        <div class="card">
+          <h3>Site público</h3>
+          <p>Home · Elenco (ao vivo da API) · Inscrição (envia pra API) · Lista de Espera</p>
+        </div>
+        <div class="card">
+          <h3>Painel admin <span style="font-size:.7em">(/admin, protegido)</span></h3>
+          <p>CRUD de atletas (modal + upload + filtro B/C) · aprovar / recusar inscrições</p>
+        </div>
+      </div>
+      <ul style="font-size:.85em; margin-top:.6em">
+        <li>Componentes reusáveis · toasts e diálogo de confirmação <strong>próprios</strong></li>
+        <li>Identidade visual da 1ª entrega <strong>mantida</strong></li>
+      </ul>
+      <p class="footer">SCC0219 — Site CBBSO</p>
+    </section>
+
+    <!-- 11. AMBIENTE -->
+    <section>
+      <h2>Ambiente &amp; ferramentas</h2>
+      <ul>
+        <li>Node <strong>24</strong> · PostgreSQL <strong>16</strong> · Git</li>
+        <li><code>npm run dev</code> — back :3000 &nbsp;|&nbsp; front :5173</li>
+        <li><code>npm run seed</code> → carrega o elenco real (14 atletas, Time B)</li>
+      </ul>
+      <p class="footer">SCC0219 — Site CBBSO</p>
+    </section>
+
+    <!-- 12. DEMO -->
+    <section style="text-align:center">
+      <h2 style="display:inline-block">Demonstração ao vivo</h2>
+      <ol style="display:inline-block; text-align:left; font-size:.95em; margin-top:.5em">
+        <li>Elenco público carregando da API</li>
+        <li>Enviar uma inscrição → aparece na lista de espera</li>
+        <li>Login no painel <code>/admin</code></li>
+        <li>Aprovar inscrição · editar atleta · trocar foto</li>
+      </ol>
+      <p class="legenda" style="margin-top:1.2em">Mostrar que front e back conversam de verdade.</p>
+      <p class="footer">SCC0219 — Site CBBSO</p>
+    </section>
+
+    <!-- 13. ENCERRAMENTO -->
+    <section data-auto-animate>
+      <div class="capa">
+        <img src="frontend/public/images/cbbso-logo-512x512.png" alt="CBBSO" style="width:130px">
+        <h2 style="border-bottom:none; display:block">Resumo</h2>
+        <ul style="display:inline-block; text-align:left; font-size:.9em">
+          <li>Estático → <strong>full-stack</strong>: React + Express + PostgreSQL</li>
+          <li>Segurança real: <strong>bcrypt + JWT</strong> em cookie httpOnly</li>
+          <li>Cliente/servidor, <strong>MVC</strong>, API <strong>REST</strong></li>
+          <li>Identidade visual <strong>preservada</strong></li>
+        </ul>
+        <p class="tag" style="margin-top:1em; font-weight:700; color:var(--amarelo)">Obrigado! &nbsp;Perguntas?</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    transition: 'slide',
+    width: 1280,
+    height: 720,
+    margin: 0.06
+  });
+</script>
+</body>
+</html>
